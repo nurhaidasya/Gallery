@@ -38,7 +38,5 @@ public class ImageSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        this.camera.stopPreview();
-        this.camera.release();
     }
 }
