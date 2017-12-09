@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eaeaea"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff">
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="center_vertical"
+            tools:text="Nama"/>
+        <TextView
+            android:id="@+id/bt_postOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="32sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical|right"
+            android:text="&#8942;"/>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/img_list"
+        android:layout_width="match_parent"
+        android:layout_height="393dp"
+        android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/tv_deskrip"
+        tools:text="Deskripsi ...."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+</LinearLayout>
