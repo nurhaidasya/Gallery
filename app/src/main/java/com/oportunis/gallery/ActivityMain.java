@@ -1,15 +1,14 @@
 package com.oportunis.gallery;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -20,19 +19,24 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     private MainAdapter mainAdapter;
     private ViewPager mViewPager;
     private ImageView bt_add;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.bt_add = (ImageView) findViewById(R.id.bt_add);
+        this.bt_add = findViewById(R.id.bt_add);
         this.bt_add.setOnClickListener(this);
 
         mainAdapter = new ActivityMain.MainAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mainAdapter);
         setupViewPager(mViewPager);
+
+        this.tabLayout = findViewById(R.id.tabs);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
     }
 
@@ -45,6 +49,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     public void setupViewPager(ViewPager viewPager) {
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragmentList());
+        adapter.addFragment(new FragmentGrid());
         viewPager.setAdapter(adapter);
     }
 
@@ -73,7 +78,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public int getCount() {
-            return 1;
+            return fragmentList.size();
         }
     }
 }
